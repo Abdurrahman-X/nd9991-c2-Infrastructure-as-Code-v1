@@ -1,0 +1,57 @@
+Description: Abdurrahman_X's IAM User Roles
+
+Parameters:
+  EnvironmentName:
+    Description: Will be prefixed to all resources names
+    Type: String
+
+Resources:
+  IAMUdagramApp:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - "sts:AssumeRole"
+      Path: /
+  
+  UdagramAppPolicies:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub "${EnvironmentName}-UdagramApp-Policy"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - "s3:GetObject"
+            Resource:
+              !Join [
+                "",
+                [
+                  "arn:aws:s3:::",
+                  Fn::ImportValue: !Sub "${EnvironmentName}-UdagramBucketData",
+                  /*,
+                ],
+              ]
+      Roles:
+        - !Ref IAMUdagramApp
+
+  UdagramAppInstanceProfile:
+    Type: "AWS::IAM::InstanceProfile"
+    Properties:
+      Path: "/"
+      Roles:
+        - !Ref IAMUdagramApp
+
+Outputs:
+  InstanceProfile:
+    Description: Instance Profile for the Udagram App server to access the Udagram s3 bucket
+    Value: !Ref UdagramAppInstanceProfile
+    Export:
+      Name: !Sub "${EnvironmentName}-InstanceProfile"

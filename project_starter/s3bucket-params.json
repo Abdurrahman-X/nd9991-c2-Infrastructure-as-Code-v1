@@ -1,0 +1,12 @@
+[
+    {
+      "ParameterKey": "EnvironmentName",
+      "ParameterValue": "UdagramApp"
+    },
+    
+    {
+      "ParameterKey": "BucketName",
+      "ParameterValue": "UdagramBucket"
+    }
+  ]
+  

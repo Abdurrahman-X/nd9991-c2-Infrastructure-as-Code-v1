@@ -1,6 +1,16 @@
 [
 	{
 		"ParameterKey": "EnvironmentName",
-		"ParameterValue": "UdacityProject"
+		"ParameterValue": "UdagramApp"
+	},
+	
+	{
+		"ParameterKey": "InstanceType",
+		"ParameterValue": "t3.medium"
+	},
+	
+	{
+		"ParameterKey": "AMItoUse",
+		"ParameterValue": "ami-0cff7528ff583bf9a"
 	}
 ]

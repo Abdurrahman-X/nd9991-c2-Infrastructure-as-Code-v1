@@ -1,0 +1,23 @@
+Description: Abdurrahman_X's - S3 bucket for UdagramApp
+
+Parameters:
+  EnvironmentName:
+    Description: Will be prefixed to all resources names.
+    Type: String
+  BucketName:
+    Description: Name of the bucket to store web app source files.
+    Type: String
+###################################
+Resources:
+  UdagramAppBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+    DeletionPolicy: Delete
+###################################
+Outputs:
+  Bucket:
+    Value: !Ref UdagramAppBucket
+    Description: Bucket with sourcefiles
+    Export:
+      Name: !Sub ${EnvironmentName}-UdagramBucketData
