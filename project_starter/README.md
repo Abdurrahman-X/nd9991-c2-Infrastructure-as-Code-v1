@@ -1,13 +1,7 @@
 ### Project Title - Deploy a high-availability web app using CloudFormation
-This folder provides the starter code for the "ND9991 - C2- Infrastructure as Code - Deploy a high-availability web app using CloudFormation" project. This folder contains the following files:
+In this project, I have deployed web servers for a highly available web app using CloudFormation. I have written the code that creates and deploys the infrastructure and application for an Instagram-like app from the ground up. I began with deploying the networking components, followed by servers, security roles and software. 
 
 
-#### final-project-starter.yml
-Students have to write the CloudFormation code using this YAML template for building the cloud infrastructure, as required for the project. 
-
-#### server-parameters.json
-Students may use a JSON file for increasing the generic nature of the YAML code. For example, the JSON file contains a "ParameterKey" as "EnvironmentName" and "ParameterValue" as "UdacityProject". 
-
-In YAML code, the `${EnvironmentName}` would be substituted with `UdacityProject` accordingly.
+The Load Balancer DNS is: http://udagr-udagr-v8qqy08he2b8-1120162141.us-east-1.elb.amazonaws.com/ 
 
 
